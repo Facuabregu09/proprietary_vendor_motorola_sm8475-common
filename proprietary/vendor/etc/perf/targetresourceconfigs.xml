@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
- * Copyright (c) 2017-2022 Qualcomm Technologies, Inc.
+ * Copyright (c) 2017-2021 Qualcomm Technologies, Inc.
  * All Rights Reserved.
  * Confidential and Proprietary - Qualcomm Technologies, Inc.
 -->
@@ -72,7 +72,7 @@ as anyway perflock calls of these resources would fail. -->
         <Config MajorValue="0x3" MinorValue="0x37" Supported="no" /> <!-- Enabled till Kernel 4.19 -->
         <Config MajorValue="0x3" MinorValue="0x38" Node="/proc/sys/walt/%s" Supported="yes"/>
         <Config MajorValue="0x3" MinorValue="0x39" Supported="no" /> <!-- Enabled till Kernel 4.19 -->
-        <Config MajorValue="0x3" MinorValue="0x3C" Supported="no" />
+        <Config MajorValue="0x3" MinorValue="0x3C" Node="/proc/sys/walt/sched_wake_up_idle" />
         <Config MajorValue="0x3" MinorValue="0x3D" Node="/proc/sys/walt/%s" Supported="yes"/>
 
         <Config MajorValue="0x5" MinorValue="0xF" Node="/sys/devices/system/cpu/cpu0/cpufreq/walt/hispeed_freq" />
@@ -92,23 +92,21 @@ as anyway perflock calls of these resources would fail. -->
         <Config MajorValue="0x6" MinorValue="0x7" Supported="no" />
         <Config MajorValue="0x6" MinorValue="0x8" Supported="no" />
         <Config MajorValue="0x6" MinorValue="0x9" Supported="no" />
-        <Config MajorValue="0x6" MinorValue="0xB" Supported="no" />
-        <Config MajorValue="0x6" MinorValue="0xD" Supported="no" />
-        <Config MajorValue="0x6" MinorValue="0x9" Supported="no" />
 
         <!-- CPU_LLCC_BW major new opcodes-->
         <Config MajorValue="0x6" MinorValue="0xA" Supported="no" />
-        <Config MajorValue="0x6" MinorValue="0xB" Supported="no" />
+        <Config MajorValue="0x6" MinorValue="0xB" Node="/sys/devices/system/cpu/bus_dcvs/LLCC/190b6400.qcom,bwmon-llcc/up_scale" />
         <Config MajorValue="0x6" MinorValue="0xC" Supported="no" />
-        <Config MajorValue="0x6" MinorValue="0xD" Supported="no" />
-        <Config MajorValue="0x6" MinorValue="0xE" Supported="no" />
-        <Config MajorValue="0x6" MinorValue="0xF" Supported="no" />
-        <Config MajorValue="0x6" MinorValue="0x10" Supported="no" />
-        <Config MajorValue="0x6" MinorValue="0x11" Supported="no" />
-        <Config MajorValue="0x6" MinorValue="0x12" Supported="no" />
+        <Config MajorValue="0x6" MinorValue="0xD" Node="/sys/devices/system/cpu/bus_dcvs/LLCC/190b6400.qcom,bwmon-llcc/io_percent" />
+        <Config MajorValue="0x6" MinorValue="0xE" Node="/sys/devices/system/cpu/bus_dcvs/LLCC/190b6400.qcom,bwmon-llcc" />
+        <Config MajorValue="0x6" MinorValue="0xF" Node="/sys/devices/system/cpu/bus_dcvs/LLCC/190b6400.qcom,bwmon-llcc/sample_ms" />
+        <Config MajorValue="0x6" MinorValue="0x10" Node="/sys/devices/system/cpu/bus_dcvs/LLCC/190b6400.qcom,bwmon-llcc/window_ms" />
+        <Config MajorValue="0x6" MinorValue="0x11" Node="/sys/devices/system/cpu/bus_dcvs/LLCC/190b6400.qcom,bwmon-llcc/min_freq" />
+        <Config MajorValue="0x6" MinorValue="0x12" Node="/sys/devices/system/cpu/bus_dcvs/LLCC/190b6400.qcom,bwmon-llcc/max_freq" />
 
         <Config MajorValue="0xA" MinorValue="0x5" Supported="no" />
         <Config MajorValue="0xA" MinorValue="0x6" Supported="no" />
+        <Config MajorValue="0xA" MinorValue="0x7" Supported="no" Target="diwali"/>
         <Config MajorValue="0xA" MinorValue="0x8" Supported="no" />
         <Config MajorValue="0xA" MinorValue="0x9" Supported="no" />
 
@@ -136,7 +134,6 @@ as anyway perflock calls of these resources would fail. -->
         <Config MajorValue="0xC" MinorValue="0xF" Node="/sys/devices/system/cpu/bus_dcvs/DDR/19091000.qcom,bwmon-ddr/min_freq" />
         <Config MajorValue="0xC" MinorValue="0x10" Node="/sys/devices/system/cpu/bus_dcvs/DDR/19091000.qcom,bwmon-ddr/max_freq" />
         <Config MajorValue="0xC" MinorValue="0x11" Supported="no" />
-        <Config MajorValue="0xC" MinorValue="0x12" Node="/sys/devices/system/cpu/bus_dcvs/DDR/19091000.qcom,bwmon-ddr/ab_scale" />
 
         <Config MajorValue="0xD" MinorValue="0x0" Supported="no" />
         <Config MajorValue="0xD" MinorValue="0x1" Node="/sys/devices/system/cpu/bus_dcvs/L3/soc:qcom,memlat:l3:silver/ipm_ceil" />
@@ -146,10 +143,10 @@ as anyway perflock calls of these resources would fail. -->
         <Config MajorValue="0xD" MinorValue="0x5" Supported="no" />
         <Config MajorValue="0xD" MinorValue="0x6" Supported="no" />
         <Config MajorValue="0xD" MinorValue="0x7" Supported="no" />
-        <Config MajorValue="0xD" MinorValue="0x8" Supported="no" />
-        <Config MajorValue="0xD" MinorValue="0x9" Supported="no" />
-        <Config MajorValue="0xD" MinorValue="0xA" Supported="no" />
-        <Config MajorValue="0xD" MinorValue="0xB" Supported="no" />
+        <Config MajorValue="0xD" MinorValue="0x8" Node="/sys/devices/system/cpu/bus_dcvs/LLCC/soc:qcom,memlat:llcc:silver/ipm_ceil" />
+        <Config MajorValue="0xD" MinorValue="0x9" Node="/sys/devices/system/cpu/bus_dcvs/LLCC/soc:qcom,memlat:llcc:gold/ipm_ceil" />
+        <Config MajorValue="0xD" MinorValue="0xA" Node="/sys/devices/system/cpu/bus_dcvs/LLCC/soc:qcom,memlat:llcc:silver/be_stall_floor" />
+        <Config MajorValue="0xD" MinorValue="0xB" Node="/sys/devices/system/cpu/bus_dcvs/LLCC/soc:qcom,memlat:llcc:gold/be_stall_floor" />
         <Config MajorValue="0xD" MinorValue="0xC" Supported="no" />
         <Config MajorValue="0xD" MinorValue="0xD" Node="/sys/devices/system/cpu/bus_dcvs/DDR/soc:qcom,memlat:ddr:silver/ipm_ceil" />
         <Config MajorValue="0xD" MinorValue="0xE" Node="/sys/devices/system/cpu/bus_dcvs/DDR/soc:qcom,memlat:ddr:gold/ipm_ceil" />
@@ -160,13 +157,6 @@ as anyway perflock calls of these resources would fail. -->
         <Config MajorValue="0xD" MinorValue="0x13" Supported="no" />
         <Config MajorValue="0xD" MinorValue="0x14" Supported="no" />
         <Config MajorValue="0xD" MinorValue="0x15" Supported="no" />
-        <Config MajorValue="0xD" MinorValue="0x16" Supported="no" />
-        <Config MajorValue="0xD" MinorValue="0x17" Supported="no" />
-        <Config MajorValue="0xD" MinorValue="0x1C" Supported="no" />
-        <Config MajorValue="0xD" MinorValue="0x1D" Supported="no" />
-        <Config MajorValue="0xD" MinorValue="0x21" Supported="no" />
-        <Config MajorValue="0xD" MinorValue="0x23" Supported="no" />
-        <Config MajorValue="0xD" MinorValue="0x25" Supported="no" />
 
         <Config MajorValue="0xE" MinorValue="0x0" Supported="no" />
         <Config MajorValue="0xE" MinorValue="0x1" Supported="no" />

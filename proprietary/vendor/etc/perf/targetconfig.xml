@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
- * Copyright (c) 2017-2022 Qualcomm Technologies, Inc.
+ * Copyright (c) 2017-2021 Qualcomm Technologies, Inc.
  * All Rights Reserved.
  * Confidential and Proprietary - Qualcomm Technologies, Inc.
 -->
@@ -33,7 +33,8 @@
         Other Fields
         * Type, whther a "little" or "big" cluster.
         (Type is mandatory, If there is more than one cluster.)
-        * MaxFrequency, Any limitations for max frequency for that cluster.
+        * MaxFrequency, in KHz. Any limitations for max frequency for that cluster.
+        * CappedMaxFreq, in MHZ. Any limittaion on Max freq if value passed is OxFFFF
     -->
 
     <!-- For targets sharing the same platfrom, we can have seperate config tag for each
@@ -43,68 +44,74 @@
     <Config1>
 
          <TargetInfo
-             Target="parrot"
-             NumClusters="2"
+             Target="taro"
+             NumClusters="3"
              TotalNumCores="8"
-             SocIds="537,583,613,631,633,634,638,663"
+             SocIds="457,482,552"
              SynCore="1"
              CoreCtlCpu="4"
              MinCoreOnline="0"
              CpufreqGov="1" />
 
          <ClustersInfo Id="0" NumCores="4" Type="little" />
-         <ClustersInfo Id="1" NumCores="4" Type="big" />
+         <ClustersInfo Id="1" NumCores="3" Type="big" />
+         <ClustersInfo Id="2" NumCores="1" Type="prime" />
 
     </Config1>
 
     <Config2>
 
          <TargetInfo
-             Target="ravelin"
-             NumClusters="2"
+             Target="diwali"
+             NumClusters="3"
              TotalNumCores="8"
-             SocIds="568,602,653,654"
+             SocIds="506,547,564"
              SynCore="1"
-             CoreCtlCpu="2"
+             CoreCtlCpu="4"
              MinCoreOnline="0"
-             CpufreqGov="1" />
+             CpufreqGov="1"
+             MinFpsForTuning="48" />
 
-         <ClustersInfo Id="0" NumCores="6" Type="little" />
-         <ClustersInfo Id="1" NumCores="2" Type="big" />
+         <ClustersInfo Id="0" NumCores="4" Type="little" />
+         <ClustersInfo Id="1" NumCores="3" Type="big" />
+         <ClustersInfo Id="2" NumCores="1" Type="prime" />
 
     </Config2>
 
     <Config3>
 
          <TargetInfo
-             Target="montague"
-             NumClusters="2"
+             Target="cape"
+             NumClusters="3"
              TotalNumCores="8"
-             SocIds="581"
+             SocIds="530,531,540"
              SynCore="1"
              CoreCtlCpu="4"
              MinCoreOnline="0"
              CpufreqGov="1" />
 
-         <ClustersInfo Id="0" NumCores="6" Type="little" />
-         <ClustersInfo Id="1" NumCores="2" Type="big" />
+         <ClustersInfo Id="0" NumCores="4" Type="little" CappedMaxFreq="1804800"/>
+         <ClustersInfo Id="1" NumCores="3" Type="big" />
+         <ClustersInfo Id="2" NumCores="1" Type="prime" />
 
     </Config3>
+
 
     <Config4>
 
          <TargetInfo
-             Target="montaguep"
-             NumClusters="2"
+             Target="ukee"
+             NumClusters="3"
              TotalNumCores="8"
-             SocIds="582"
+             SocIds="591"
              SynCore="1"
              CoreCtlCpu="4"
              MinCoreOnline="0"
              CpufreqGov="1" />
 
-         <ClustersInfo Id="0" NumCores="6" Type="little" />
-         <ClustersInfo Id="1" NumCores="2" Type="big" />
+         <ClustersInfo Id="0" NumCores="4" Type="little" />
+         <ClustersInfo Id="1" NumCores="3" Type="big" />
+         <ClustersInfo Id="2" NumCores="1" Type="prime" />
 
     </Config4>
 

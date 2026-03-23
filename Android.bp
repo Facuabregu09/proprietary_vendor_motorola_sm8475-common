@@ -4,7 +4,7 @@
 
 soong_namespace {
     imports: [
-        "device/motorola/sm7435-common",
+        "device/motorola/sm8475-common",
         "hardware/motorola",
         "hardware/qcom-caf/sm8450",
         "hardware/qcom-caf/wlan",
@@ -682,7 +682,6 @@ cc_prebuilt_library_shared {
                 "libhidlbase",
                 "liblog",
                 "libutils",
-                "libesepmconfig",
                 "vendor.qti.esepowermanager@1.0",
                 "vendor.qti.esepowermanager@1.1",
                 "libc++",
@@ -1958,10 +1957,10 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libQnnHtp.so",
             ],
             shared_libs: [
-                "libc",
-                "libm",
-                "libdl",
                 "liblog",
+                "libdl",
+                "libm",
+                "libc",
             ],
         },
     },
@@ -1971,7 +1970,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libQnnHtpV73Stub",
+    name: "libQnnHtpAltPrepV69Stub",
     owner: "motorola",
     strip: {
         none: true,
@@ -1979,14 +1978,63 @@ cc_prebuilt_library_shared {
     target: {
         android_arm64: {
             srcs: [
-                "proprietary/vendor/lib64/libQnnHtpV73Stub.so",
+                "proprietary/vendor/lib64/libQnnHtpAltPrepV69Stub.so",
             ],
             shared_libs: [
-                "libc",
-                "libm",
+                "liblog",
+                "libcdsprpc",
                 "libdl",
+                "libm",
+                "libc",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libQnnHtpPrepare",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libQnnHtpPrepare.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libdl",
+                "libm",
+                "libc",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libQnnHtpV69Stub",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libQnnHtpV69Stub.so",
+            ],
+            shared_libs: [
                 "libcdsprpc",
                 "liblog",
+                "libm",
+                "libdl",
+                "libc",
             ],
         },
     },
@@ -2207,33 +2255,6 @@ cc_prebuilt_library_shared {
                 "libdmabufheap",
                 "libvmmem",
                 "libc++",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libaualgo_foundation",
-    owner: "motorola",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libaualgo_foundation.so",
-            ],
-            shared_libs: [
-                "libaudioutils",
-                "liblog",
-                "libcutils",
-                "libc++",
-                "libc",
                 "libm",
                 "libdl",
             ],
@@ -3426,7 +3447,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libesepmconfig",
+    name: "libesesbprovision",
     owner: "motorola",
     strip: {
         none: true,
@@ -3434,12 +3455,17 @@ cc_prebuilt_library_shared {
     target: {
         android_arm64: {
             srcs: [
-                "proprietary/vendor/lib64/libesepmconfig.so",
+                "proprietary/vendor/lib64/libesesbprovision.so",
             ],
             shared_libs: [
                 "libhidlbase",
+                "libQSEEComAPI",
+                "vendor.qti.esepowermanager@1.1",
+                "libqcbor",
+                "libcutils",
                 "liblog",
-                "libutils",
+                "libqmi_cci",
+                "libqmiservices",
                 "libc++",
                 "libc",
                 "libm",
@@ -3705,7 +3731,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libhdr_stub",
+    name: "libhdr_tm",
     owner: "motorola",
     strip: {
         none: true,
@@ -3713,12 +3739,15 @@ cc_prebuilt_library_shared {
     target: {
         android_arm64: {
             srcs: [
-                "proprietary/vendor/lib64/libhdr_stub.so",
+                "proprietary/vendor/lib64/libhdr_tm.so",
             ],
             shared_libs: [
-                "libcdsprpc",
-                "libcutils",
                 "liblog",
+                "libsdm-color",
+                "libtinyxml2_1",
+                "libcutils",
+                "libutils",
+                "libdisplayskuutils",
                 "libc++",
                 "libc",
                 "libm",
@@ -3732,7 +3761,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libhdr_tm",
+    name: "libhdrdynamic",
     owner: "motorola",
     strip: {
         none: true,
@@ -3740,7 +3769,7 @@ cc_prebuilt_library_shared {
     target: {
         android_arm64: {
             srcs: [
-                "proprietary/vendor/lib64/libhdr_tm.so",
+                "proprietary/vendor/lib64/libhdrdynamic.so",
             ],
             shared_libs: [
                 "liblog",
@@ -3941,6 +3970,7 @@ cc_prebuilt_library_shared {
                 "liblog",
                 "libcrypto",
                 "libdmabufheap",
+                "libspcom",
                 "libc++",
                 "libc",
                 "libm",
@@ -5973,6 +6003,44 @@ cc_prebuilt_library_shared {
                 "libqcodec2_base",
                 "libqcodec2_utils",
                 "libqcodec2_basecodec",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libqc2vppfilter",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libqc2vppfilter.so",
+            ],
+            shared_libs: [
+                "libutils",
+                "libcutils",
+                "liblog",
+                "libcodec2_vndk",
+                "libqdMetaData",
+                "libhidlbase",
+                "libqcodec2_base",
+                "libqcodec2_basecodec",
+                "libqcodec2_utils",
+                "libqcodec2_platform",
+                "vendor.qti.hardware.vpp@2.0",
+                "vendor.qti.hardware.capabilityconfigstore@1.0",
+                "vendor.qti.hardware.qconfig@1.0",
+                "qti.video.utils.videobufferlayout",
                 "libc++",
                 "libc",
                 "libm",
@@ -8227,6 +8295,8 @@ cc_prebuilt_library_shared {
                 "libscveCommon",
                 "libscveObjectSegmentation",
                 "libdmabufheap",
+                "libeva",
+                "libcv_common",
                 "libc++",
                 "libc",
                 "libm",
@@ -12502,6 +12572,34 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "vendor.qti.hardware.qconfig@1.0",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/vendor.qti.hardware.qconfig@1.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "vendor.qti.hardware.qseecom@1.0",
     owner: "motorola",
     strip: {
@@ -14742,127 +14840,163 @@ cc_prebuilt_library_shared {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n31_bin",
-    filename: "bm2n31.bin",
+    name: "vendor_lib_rfsa_adsp_bm2n00_bin",
+    filename: "bm2n00.bin",
     owner: "motorola",
-    src: "proprietary/vendor/lib/rfsa/adsp/bm2n31.bin",
+    src: "proprietary/vendor/lib/rfsa/adsp/bm2n00.bin",
     relative_install_path: "adsp",
     soc_specific: true,
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n32_bin",
-    filename: "bm2n32.bin",
+    name: "vendor_lib_rfsa_adsp_bm2n01_bin",
+    filename: "bm2n01.bin",
     owner: "motorola",
-    src: "proprietary/vendor/lib/rfsa/adsp/bm2n32.bin",
+    src: "proprietary/vendor/lib/rfsa/adsp/bm2n01.bin",
     relative_install_path: "adsp",
     soc_specific: true,
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n33_bin",
-    filename: "bm2n33.bin",
+    name: "vendor_lib_rfsa_adsp_bm2n02_bin",
+    filename: "bm2n02.bin",
     owner: "motorola",
-    src: "proprietary/vendor/lib/rfsa/adsp/bm2n33.bin",
+    src: "proprietary/vendor/lib/rfsa/adsp/bm2n02.bin",
     relative_install_path: "adsp",
     soc_specific: true,
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n34_bin",
-    filename: "bm2n34.bin",
+    name: "vendor_lib_rfsa_adsp_bm2n03_bin",
+    filename: "bm2n03.bin",
     owner: "motorola",
-    src: "proprietary/vendor/lib/rfsa/adsp/bm2n34.bin",
+    src: "proprietary/vendor/lib/rfsa/adsp/bm2n03.bin",
     relative_install_path: "adsp",
     soc_specific: true,
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n35_bin",
-    filename: "bm2n35.bin",
+    name: "vendor_lib_rfsa_adsp_bm2n04_bin",
+    filename: "bm2n04.bin",
     owner: "motorola",
-    src: "proprietary/vendor/lib/rfsa/adsp/bm2n35.bin",
+    src: "proprietary/vendor/lib/rfsa/adsp/bm2n04.bin",
     relative_install_path: "adsp",
     soc_specific: true,
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n36_bin",
-    filename: "bm2n36.bin",
+    name: "vendor_lib_rfsa_adsp_bm2n05_bin",
+    filename: "bm2n05.bin",
     owner: "motorola",
-    src: "proprietary/vendor/lib/rfsa/adsp/bm2n36.bin",
+    src: "proprietary/vendor/lib/rfsa/adsp/bm2n05.bin",
     relative_install_path: "adsp",
     soc_specific: true,
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n37_bin",
-    filename: "bm2n37.bin",
+    name: "vendor_lib_rfsa_adsp_bm2n06_bin",
+    filename: "bm2n06.bin",
     owner: "motorola",
-    src: "proprietary/vendor/lib/rfsa/adsp/bm2n37.bin",
+    src: "proprietary/vendor/lib/rfsa/adsp/bm2n06.bin",
     relative_install_path: "adsp",
     soc_specific: true,
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n54_bin",
-    filename: "bm2n54.bin",
+    name: "vendor_lib_rfsa_adsp_bm2n07_bin",
+    filename: "bm2n07.bin",
     owner: "motorola",
-    src: "proprietary/vendor/lib/rfsa/adsp/bm2n54.bin",
+    src: "proprietary/vendor/lib/rfsa/adsp/bm2n07.bin",
     relative_install_path: "adsp",
     soc_specific: true,
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n55_bin",
-    filename: "bm2n55.bin",
+    name: "vendor_lib_rfsa_adsp_bm2n08_bin",
+    filename: "bm2n08.bin",
     owner: "motorola",
-    src: "proprietary/vendor/lib/rfsa/adsp/bm2n55.bin",
+    src: "proprietary/vendor/lib/rfsa/adsp/bm2n08.bin",
     relative_install_path: "adsp",
     soc_specific: true,
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n56_bin",
-    filename: "bm2n56.bin",
+    name: "vendor_lib_rfsa_adsp_bm2n09_bin",
+    filename: "bm2n09.bin",
     owner: "motorola",
-    src: "proprietary/vendor/lib/rfsa/adsp/bm2n56.bin",
+    src: "proprietary/vendor/lib/rfsa/adsp/bm2n09.bin",
     relative_install_path: "adsp",
     soc_specific: true,
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libQnnHtpV73_so",
-    filename: "libQnnHtpV73.so",
+    name: "vendor_lib_rfsa_adsp_bm2n10_bin",
+    filename: "bm2n10.bin",
     owner: "motorola",
-    src: "proprietary/vendor/lib/rfsa/adsp/libQnnHtpV73.so",
+    src: "proprietary/vendor/lib/rfsa/adsp/bm2n10.bin",
     relative_install_path: "adsp",
     soc_specific: true,
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libQnnHtpV73Skel_so",
-    filename: "libQnnHtpV73Skel.so",
+    name: "vendor_lib_rfsa_adsp_bm2n11_bin",
+    filename: "bm2n11.bin",
     owner: "motorola",
-    src: "proprietary/vendor/lib/rfsa/adsp/libQnnHtpV73Skel.so",
+    src: "proprietary/vendor/lib/rfsa/adsp/bm2n11.bin",
     relative_install_path: "adsp",
     soc_specific: true,
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libSnpeDspV65Skel_so",
-    filename: "libSnpeDspV65Skel.so",
+    name: "vendor_lib_rfsa_adsp_capi_v2_aptX_Classic_so",
+    filename: "capi_v2_aptX_Classic.so",
     owner: "motorola",
-    src: "proprietary/vendor/lib/rfsa/adsp/libSnpeDspV65Skel.so",
+    src: "proprietary/vendor/lib/rfsa/adsp/capi_v2_aptX_Classic.so",
     relative_install_path: "adsp",
     soc_specific: true,
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libSnpeDspV66Skel_so",
-    filename: "libSnpeDspV66Skel.so",
+    name: "vendor_lib_rfsa_adsp_capi_v2_aptX_HD_so",
+    filename: "capi_v2_aptX_HD.so",
     owner: "motorola",
-    src: "proprietary/vendor/lib/rfsa/adsp/libSnpeDspV66Skel.so",
+    src: "proprietary/vendor/lib/rfsa/adsp/capi_v2_aptX_HD.so",
+    relative_install_path: "adsp",
+    soc_specific: true,
+}
+
+prebuilt_rfsa {
+    name: "vendor_lib_rfsa_adsp_libDspIOProxy_skel_so",
+    filename: "libDspIOProxy_skel.so",
+    owner: "motorola",
+    src: "proprietary/vendor/lib/rfsa/adsp/libDspIOProxy_skel.so",
+    relative_install_path: "adsp",
+    soc_specific: true,
+}
+
+prebuilt_rfsa {
+    name: "vendor_lib_rfsa_adsp_libQ6MSFR_manager_skel_so",
+    filename: "libQ6MSFR_manager_skel.so",
+    owner: "motorola",
+    src: "proprietary/vendor/lib/rfsa/adsp/libQ6MSFR_manager_skel.so",
+    relative_install_path: "adsp",
+    soc_specific: true,
+}
+
+prebuilt_rfsa {
+    name: "vendor_lib_rfsa_adsp_libQnnHtpAltPrepV69Skel_so",
+    filename: "libQnnHtpAltPrepV69Skel.so",
+    owner: "motorola",
+    src: "proprietary/vendor/lib/rfsa/adsp/libQnnHtpAltPrepV69Skel.so",
+    relative_install_path: "adsp",
+    soc_specific: true,
+}
+
+prebuilt_rfsa {
+    name: "vendor_lib_rfsa_adsp_libQnnHtpV69Skel_so",
+    filename: "libQnnHtpV69Skel.so",
+    owner: "motorola",
+    src: "proprietary/vendor/lib/rfsa/adsp/libQnnHtpV69Skel.so",
     relative_install_path: "adsp",
     soc_specific: true,
 }
@@ -14886,19 +15020,28 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libSnpeHtpV73Skel_so",
-    filename: "libSnpeHtpV73Skel.so",
+    name: "vendor_lib_rfsa_adsp_libSuperSensor_skel_so",
+    filename: "libSuperSensor_skel.so",
     owner: "motorola",
-    src: "proprietary/vendor/lib/rfsa/adsp/libSnpeHtpV73Skel.so",
+    src: "proprietary/vendor/lib/rfsa/adsp/libSuperSensor_skel.so",
     relative_install_path: "adsp",
     soc_specific: true,
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libSuperSensor_skel_so",
-    filename: "libSuperSensor_skel.so",
+    name: "vendor_lib_rfsa_adsp_libVppFrcQnnHtp_so",
+    filename: "libVppFrcQnnHtp.so",
     owner: "motorola",
-    src: "proprietary/vendor/lib/rfsa/adsp/libSuperSensor_skel.so",
+    src: "proprietary/vendor/lib/rfsa/adsp/libVppFrcQnnHtp.so",
+    relative_install_path: "adsp",
+    soc_specific: true,
+}
+
+prebuilt_rfsa {
+    name: "vendor_lib_rfsa_adsp_libVppQnnHtp_so",
+    filename: "libVppQnnHtp.so",
+    owner: "motorola",
+    src: "proprietary/vendor/lib/rfsa/adsp/libVppQnnHtp.so",
     relative_install_path: "adsp",
     soc_specific: true,
 }
@@ -14917,15 +15060,6 @@ prebuilt_rfsa {
     filename: "libapn_dsp_skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libapn_dsp_skel.so",
-    relative_install_path: "adsp",
-    soc_specific: true,
-}
-
-prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libarc_htp_driver_skel_so",
-    filename: "libarc_htp_driver_skel.so",
-    owner: "motorola",
-    src: "proprietary/vendor/lib/rfsa/adsp/libarc_htp_driver_skel.so",
     relative_install_path: "adsp",
     soc_specific: true,
 }
@@ -14967,6 +15101,15 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
+    name: "vendor_lib_rfsa_adsp_libcvpdsp_2_1_so",
+    filename: "libcvpdsp_2_1.so",
+    owner: "motorola",
+    src: "proprietary/vendor/lib/rfsa/adsp/libcvpdsp_2_1.so",
+    relative_install_path: "adsp",
+    soc_specific: true,
+}
+
+prebuilt_rfsa {
     name: "vendor_lib_rfsa_adsp_libdspCV_skel_so",
     filename: "libdspCV_skel.so",
     owner: "motorola",
@@ -14980,6 +15123,33 @@ prebuilt_rfsa {
     filename: "libdsp_streamer_binning.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libdsp_streamer_binning.so",
+    relative_install_path: "adsp",
+    soc_specific: true,
+}
+
+prebuilt_rfsa {
+    name: "vendor_lib_rfsa_adsp_libdsp_streamer_qvrcam_receiver_so",
+    filename: "libdsp_streamer_qvrcam_receiver.so",
+    owner: "motorola",
+    src: "proprietary/vendor/lib/rfsa/adsp/libdsp_streamer_qvrcam_receiver.so",
+    relative_install_path: "adsp",
+    soc_specific: true,
+}
+
+prebuilt_rfsa {
+    name: "vendor_lib_rfsa_adsp_libevadsp_3_0_so",
+    filename: "libevadsp_3_0.so",
+    owner: "motorola",
+    src: "proprietary/vendor/lib/rfsa/adsp/libevadsp_3_0.so",
+    relative_install_path: "adsp",
+    soc_specific: true,
+}
+
+prebuilt_rfsa {
+    name: "vendor_lib_rfsa_adsp_libeye_tracking_dsp_sample_skel_so",
+    filename: "libeye_tracking_dsp_sample_skel.so",
+    owner: "motorola",
+    src: "proprietary/vendor/lib/rfsa/adsp/libeye_tracking_dsp_sample_skel.so",
     relative_install_path: "adsp",
     soc_specific: true,
 }
@@ -15003,19 +15173,10 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libhdr_skel_so",
-    filename: "libhdr_skel.so",
+    name: "vendor_lib_rfsa_adsp_libhalide_hexagon_remote_skel_so",
+    filename: "libhalide_hexagon_remote_skel.so",
     owner: "motorola",
-    src: "proprietary/vendor/lib/rfsa/adsp/libhdr_skel.so",
-    relative_install_path: "adsp",
-    soc_specific: true,
-}
-
-prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libhme_dsp_skel_so",
-    filename: "libhme_dsp_skel.so",
-    owner: "motorola",
-    src: "proprietary/vendor/lib/rfsa/adsp/libhme_dsp_skel.so",
+    src: "proprietary/vendor/lib/rfsa/adsp/libhalide_hexagon_remote_skel.so",
     relative_install_path: "adsp",
     soc_specific: true,
 }
@@ -15030,6 +15191,51 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
+    name: "vendor_lib_rfsa_adsp_libmobilenet_dsp_frc_so",
+    filename: "libmobilenet_dsp_frc.so",
+    owner: "motorola",
+    src: "proprietary/vendor/lib/rfsa/adsp/libmobilenet_dsp_frc.so",
+    relative_install_path: "adsp",
+    soc_specific: true,
+}
+
+prebuilt_rfsa {
+    name: "vendor_lib_rfsa_adsp_libmobilenet_dsp_frc_networks_so",
+    filename: "libmobilenet_dsp_frc_networks.so",
+    owner: "motorola",
+    src: "proprietary/vendor/lib/rfsa/adsp/libmobilenet_dsp_frc_networks.so",
+    relative_install_path: "adsp",
+    soc_specific: true,
+}
+
+prebuilt_rfsa {
+    name: "vendor_lib_rfsa_adsp_libqvr_3dof_tracker_skel_so",
+    filename: "libqvr_3dof_tracker_skel.so",
+    owner: "motorola",
+    src: "proprietary/vendor/lib/rfsa/adsp/libqvr_3dof_tracker_skel.so",
+    relative_install_path: "adsp",
+    soc_specific: true,
+}
+
+prebuilt_rfsa {
+    name: "vendor_lib_rfsa_adsp_libqvr_cam_dsp_driver_skel_so",
+    filename: "libqvr_cam_dsp_driver_skel.so",
+    owner: "motorola",
+    src: "proprietary/vendor/lib/rfsa/adsp/libqvr_cam_dsp_driver_skel.so",
+    relative_install_path: "adsp",
+    soc_specific: true,
+}
+
+prebuilt_rfsa {
+    name: "vendor_lib_rfsa_adsp_libqvr_dsp_driver_skel_so",
+    filename: "libqvr_dsp_driver_skel.so",
+    owner: "motorola",
+    src: "proprietary/vendor/lib/rfsa/adsp/libqvr_dsp_driver_skel.so",
+    relative_install_path: "adsp",
+    soc_specific: true,
+}
+
+prebuilt_rfsa {
     name: "vendor_lib_rfsa_adsp_libscveT2T_skel_so",
     filename: "libscveT2T_skel.so",
     owner: "motorola",
@@ -15039,10 +15245,64 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libsw2dlut_dsp_skel_so",
-    filename: "libsw2dlut_dsp_skel.so",
+    name: "vendor_lib_rfsa_adsp_libsnpe_dsp_v65_domains_v2_skel_so",
+    filename: "libsnpe_dsp_v65_domains_v2_skel.so",
     owner: "motorola",
-    src: "proprietary/vendor/lib/rfsa/adsp/libsw2dlut_dsp_skel.so",
+    src: "proprietary/vendor/lib/rfsa/adsp/libsnpe_dsp_v65_domains_v2_skel.so",
+    relative_install_path: "adsp",
+    soc_specific: true,
+}
+
+prebuilt_rfsa {
+    name: "vendor_lib_rfsa_adsp_libsnpe_dsp_v66_domains_v2_skel_so",
+    filename: "libsnpe_dsp_v66_domains_v2_skel.so",
+    owner: "motorola",
+    src: "proprietary/vendor/lib/rfsa/adsp/libsnpe_dsp_v66_domains_v2_skel.so",
+    relative_install_path: "adsp",
+    soc_specific: true,
+}
+
+prebuilt_rfsa {
+    name: "vendor_lib_rfsa_adsp_libtracker_6dof_skel_8250_so",
+    filename: "libtracker_6dof_skel_8250.so",
+    owner: "motorola",
+    src: "proprietary/vendor/lib/rfsa/adsp/libtracker_6dof_skel_8250.so",
+    relative_install_path: "adsp",
+    soc_specific: true,
+}
+
+prebuilt_rfsa {
+    name: "vendor_lib_rfsa_adsp_libtracker_6dof_skel_8350_so",
+    filename: "libtracker_6dof_skel_8350.so",
+    owner: "motorola",
+    src: "proprietary/vendor/lib/rfsa/adsp/libtracker_6dof_skel_8350.so",
+    relative_install_path: "adsp",
+    soc_specific: true,
+}
+
+prebuilt_rfsa {
+    name: "vendor_lib_rfsa_adsp_libvpp_ais_networks_so",
+    filename: "libvpp_ais_networks.so",
+    owner: "motorola",
+    src: "proprietary/vendor/lib/rfsa/adsp/libvpp_ais_networks.so",
+    relative_install_path: "adsp",
+    soc_specific: true,
+}
+
+prebuilt_rfsa {
+    name: "vendor_lib_rfsa_adsp_libvpp_vqa_networks_so",
+    filename: "libvpp_vqa_networks.so",
+    owner: "motorola",
+    src: "proprietary/vendor/lib/rfsa/adsp/libvpp_vqa_networks.so",
+    relative_install_path: "adsp",
+    soc_specific: true,
+}
+
+prebuilt_rfsa {
+    name: "vendor_lib_rfsa_adsp_libvpt_action_recognition_so",
+    filename: "libvpt_action_recognition.so",
+    owner: "motorola",
+    src: "proprietary/vendor/lib/rfsa/adsp/libvpt_action_recognition.so",
     relative_install_path: "adsp",
     soc_specific: true,
 }
@@ -15239,8 +15499,6 @@ cc_prebuilt_library_shared {
                 "libhidlmemory",
                 "libc",
                 "libcutils",
-                "libbinder_ndk",
-                "vendor.qti.diaghal-V1-ndk",
                 "libc++",
                 "libm",
                 "libdl",
@@ -16201,32 +16459,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.qti.diaghal-V1-ndk",
-    owner: "motorola",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/system_ext/lib64/vendor.qti.diaghal-V1-ndk.so",
-            ],
-            shared_libs: [
-                "libbinder_ndk",
-                "android.hardware.common-V2-ndk",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    system_ext_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "vendor.qti.diaghal@1.0",
     owner: "motorola",
     strip: {
@@ -16546,22 +16778,20 @@ android_app_import {
 }
 
 android_app_import {
-    name: "EuiccGoogle",
-    owner: "motorola",
-    apk: "proprietary/product/priv-app/EuiccGoogle/EuiccGoogle.apk",
-    preprocessed: true,
-    presigned: true,
-    dex_preopt: {
-        enabled: false,
-    },
-    privileged: true,
-    product_specific: true,
-}
-
-android_app_import {
     name: "ImsRcsService",
     owner: "motorola",
     apk: "proprietary/system_ext/app/ImsRcsService/ImsRcsService.apk",
+    certificate: "platform",
+    dex_preopt: {
+        enabled: false,
+    },
+    system_ext_specific: true,
+}
+
+android_app_import {
+    name: "QtiTelephony",
+    owner: "motorola",
+    apk: "proprietary/system_ext/app/QtiTelephony/QtiTelephony.apk",
     certificate: "platform",
     dex_preopt: {
         enabled: false,
@@ -16577,18 +16807,6 @@ android_app_import {
     dex_preopt: {
         enabled: false,
     },
-    system_ext_specific: true,
-}
-
-android_app_import {
-    name: "QtiTelephony",
-    owner: "motorola",
-    apk: "proprietary/system_ext/priv-app/QtiTelephony/QtiTelephony.apk",
-    certificate: "platform",
-    dex_preopt: {
-        enabled: false,
-    },
-    privileged: true,
     system_ext_specific: true,
 }
 
@@ -16921,6 +17139,15 @@ prebuilt_etc_xml {
     name: "vendor.qti.hardware.perf.xml",
     owner: "motorola",
     src: "proprietary/vendor/etc/vintf/manifest/vendor.qti.hardware.perf.xml",
+    filename_from_src: true,
+    sub_dir: "vintf/manifest",
+    soc_specific: true,
+}
+
+prebuilt_etc_xml {
+    name: "vendor.qti.hardware.qconfig@1.0-service.xml",
+    owner: "motorola",
+    src: "proprietary/vendor/etc/vintf/manifest/vendor.qti.hardware.qconfig@1.0-service.xml",
     filename_from_src: true,
     sub_dir: "vintf/manifest",
     soc_specific: true,
@@ -17643,12 +17870,11 @@ cc_prebuilt_binary {
                 "libutils",
                 "libhardware_legacy",
                 "libhardware",
+                "libQSEEComAPI",
                 "liblog",
                 "libhidlbase",
-                "libQSEEComAPI",
-                "libesepmconfig",
+                "android.hardware.nfc@1.2",
                 "vendor.qti.esepowermanager@1.1",
-                "vendor.qti.esepowermanager@1.1-impl",
                 "libc++",
                 "libc",
                 "libm",
@@ -18039,18 +18265,26 @@ cc_prebuilt_binary {
 }
 
 sh_binary {
-    name: "init.kernel.post_boot-parrot",
+    name: "init.kernel.post_boot-cape",
     owner: "motorola",
-    src: "proprietary/vendor/bin/init.kernel.post_boot-parrot.sh",
-    filename: "init.kernel.post_boot-parrot.sh",
+    src: "proprietary/vendor/bin/init.kernel.post_boot-cape.sh",
+    filename: "init.kernel.post_boot-cape.sh",
     soc_specific: true,
 }
 
 sh_binary {
-    name: "init.kernel.post_boot-ravelin",
+    name: "init.kernel.post_boot-diwali",
     owner: "motorola",
-    src: "proprietary/vendor/bin/init.kernel.post_boot-ravelin.sh",
-    filename: "init.kernel.post_boot-ravelin.sh",
+    src: "proprietary/vendor/bin/init.kernel.post_boot-diwali.sh",
+    filename: "init.kernel.post_boot-diwali.sh",
+    soc_specific: true,
+}
+
+sh_binary {
+    name: "init.kernel.post_boot-taro",
+    owner: "motorola",
+    src: "proprietary/vendor/bin/init.kernel.post_boot-taro.sh",
+    filename: "init.kernel.post_boot-taro.sh",
     soc_specific: true,
 }
 
@@ -18597,9 +18831,6 @@ cc_prebuilt_binary {
                 "libqmiservices",
                 "libqmimotext",
                 "libmdmcutback",
-                "libdiag",
-                "liblog",
-                "libsqlite",
                 "liblog_vendor",
                 "libutils",
                 "libadropbox",
@@ -19373,7 +19604,6 @@ cc_prebuilt_binary {
                 "libutils",
                 "libfmq",
                 "libbinder",
-                "libcutils",
                 "liblog",
                 "vendor.qti.hardware.qccsyshal@1.2-halimpl",
                 "vendor.qti.hardware.qccsyshal@1.2",
@@ -19532,17 +19762,7 @@ filegroup {
         "proprietary/vendor/etc/qcril_database/upgrade/ecc/44_version_qcrildb.sql",
         "proprietary/vendor/etc/qcril_database/upgrade/ecc/45_version_qcrildb.sql",
         "proprietary/vendor/etc/qcril_database/upgrade/ecc/46_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/47_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/48_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/49_version_qcrildb.sql",
         "proprietary/vendor/etc/qcril_database/upgrade/ecc/4_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/50_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/51_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/52_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/53_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/54_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/55_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/56_version_qcrildb.sql",
         "proprietary/vendor/etc/qcril_database/upgrade/ecc/5_version_qcrildb.sql",
         "proprietary/vendor/etc/qcril_database/upgrade/ecc/6_version_qcrildb.sql",
         "proprietary/vendor/etc/qcril_database/upgrade/ecc/7_version_qcrildb.sql",
