@@ -115,9 +115,9 @@ echo "walt" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
 echo 0 > /sys/devices/system/cpu/cpufreq/policy4/walt/down_rate_limit_us
 echo 0 > /sys/devices/system/cpu/cpufreq/policy4/walt/up_rate_limit_us
 if [ $rev == "1.0" ]; then
-	echo 1497600 > /sys/devices/system/cpu/cpufreq/policy4/walt/hispeed_freq
+	echo 1900800 > /sys/devices/system/cpu/cpufreq/policy4/walt/hispeed_freq
 else
-	echo 1555200 > /sys/devices/system/cpu/cpufreq/policy4/walt/hispeed_freq
+	echo 1900800 > /sys/devices/system/cpu/cpufreq/policy4/walt/hispeed_freq
 fi
 echo 1 > /sys/devices/system/cpu/cpufreq/policy4/walt/pl
 
@@ -126,9 +126,9 @@ echo "walt" > /sys/devices/system/cpu/cpufreq/policy7/scaling_governor
 echo 0 > /sys/devices/system/cpu/cpufreq/policy7/walt/down_rate_limit_us
 echo 0 > /sys/devices/system/cpu/cpufreq/policy7/walt/up_rate_limit_us
 if [ $rev == "1.0" ]; then
-	echo 1536000 > /sys/devices/system/cpu/cpufreq/policy7/walt/hispeed_freq
+	echo 2227200 > /sys/devices/system/cpu/cpufreq/policy7/walt/hispeed_freq
 else
-	echo 1728000 > /sys/devices/system/cpu/cpufreq/policy7/walt/hispeed_freq
+	echo 2227200 > /sys/devices/system/cpu/cpufreq/policy7/walt/hispeed_freq
 fi
 echo 1 > /sys/devices/system/cpu/cpufreq/policy7/walt/pl
 
@@ -227,5 +227,10 @@ case "$console_config" in
 		echo "Enable console config to $console_config"
 	;;
 esac
+
+# GPU tuning (Adreno 730) - factory max freq, raised min, longer idle timer
+echo 818000000 > /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
+echo 317000000 > /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
+echo 150 > /sys/class/kgsl/kgsl-3d0/idle_timer
 
 setprop vendor.post_boot.parsed 1
