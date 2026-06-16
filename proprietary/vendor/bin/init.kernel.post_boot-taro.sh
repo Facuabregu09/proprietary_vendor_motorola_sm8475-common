@@ -72,7 +72,7 @@ echo 400000000 > /proc/sys/walt/sched_coloc_downmigrate_ns
 echo 39000000 39000000 39000000 39000000 39000000 39000000 39000000 5000000 > /proc/sys/walt/sched_coloc_busy_hyst_cpu_ns
 echo 240 > /proc/sys/walt/sched_coloc_busy_hysteresis_enable_cpus
 echo 10 10 10 10 10 10 10 95 > /proc/sys/walt/sched_coloc_busy_hyst_cpu_busy_pct
-echo 5000000 5000000 5000000 5000000 5000000 5000000 5000000 2000000 > /proc/sys/walt/sched_util_busy_hyst_cpu_ns
+echo 16000000 16000000 16000000 16000000 16000000 16000000 16000000 8000000 > /proc/sys/walt/sched_util_busy_hyst_cpu_ns
 echo 255 > /proc/sys/walt/sched_util_busy_hysteresis_enable_cpus
 echo 15 15 15 15 15 15 15 15 > /proc/sys/walt/sched_util_busy_hyst_cpu_util
 
@@ -99,16 +99,16 @@ if [ $rev == "1.0" ]; then
 else
 	echo 1267200 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_freq
 fi
-echo 614400 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+echo 844800 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
 echo 1 > /sys/devices/system/cpu/cpufreq/policy0/walt/pl
 
 # configure input boost settings
 if [ $rev == "1.0" ]; then
-	echo 1382800 0 0 0 0 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
+	echo 1804800 0 0 0 1766400 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
 else
-	echo 1171200 0 0 0 0 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
+	echo 1804800 0 0 0 1766400 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
 fi
-echo 100 > /proc/sys/walt/input_boost/input_boost_ms
+echo 200 > /proc/sys/walt/input_boost/input_boost_ms
 
 # configure governor settings for gold cluster
 echo "walt" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
