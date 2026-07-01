@@ -72,7 +72,7 @@ echo 400000000 > /proc/sys/walt/sched_coloc_downmigrate_ns
 echo 39000000 39000000 39000000 39000000 39000000 39000000 39000000 5000000 > /proc/sys/walt/sched_coloc_busy_hyst_cpu_ns
 echo 240 > /proc/sys/walt/sched_coloc_busy_hysteresis_enable_cpus
 echo 10 10 10 10 10 10 10 95 > /proc/sys/walt/sched_coloc_busy_hyst_cpu_busy_pct
-echo 16000000 16000000 16000000 16000000 16000000 16000000 16000000 8000000 > /proc/sys/walt/sched_util_busy_hyst_cpu_ns
+echo 5000000 5000000 5000000 5000000 5000000 5000000 5000000 2000000 > /proc/sys/walt/sched_util_busy_hyst_cpu_ns
 echo 255 > /proc/sys/walt/sched_util_busy_hysteresis_enable_cpus
 echo 15 15 15 15 15 15 15 15 > /proc/sys/walt/sched_util_busy_hyst_cpu_util
 
@@ -99,25 +99,25 @@ if [ $rev == "1.0" ]; then
 else
 	echo 1267200 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_freq
 fi
-echo 844800 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+echo 614400 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
 echo 1 > /sys/devices/system/cpu/cpufreq/policy0/walt/pl
 
 # configure input boost settings
 if [ $rev == "1.0" ]; then
-	echo 1804800 0 0 0 1766400 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
+	echo 1382800 0 0 0 0 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
 else
-	echo 1804800 0 0 0 1766400 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
+	echo 1171200 0 0 0 0 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
 fi
-echo 200 > /proc/sys/walt/input_boost/input_boost_ms
+echo 100 > /proc/sys/walt/input_boost/input_boost_ms
 
 # configure governor settings for gold cluster
 echo "walt" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
 echo 0 > /sys/devices/system/cpu/cpufreq/policy4/walt/down_rate_limit_us
 echo 0 > /sys/devices/system/cpu/cpufreq/policy4/walt/up_rate_limit_us
 if [ $rev == "1.0" ]; then
-	echo 1900800 > /sys/devices/system/cpu/cpufreq/policy4/walt/hispeed_freq
+	echo 1497600 > /sys/devices/system/cpu/cpufreq/policy4/walt/hispeed_freq
 else
-	echo 1900800 > /sys/devices/system/cpu/cpufreq/policy4/walt/hispeed_freq
+	echo 1555200 > /sys/devices/system/cpu/cpufreq/policy4/walt/hispeed_freq
 fi
 echo 1 > /sys/devices/system/cpu/cpufreq/policy4/walt/pl
 
@@ -126,9 +126,9 @@ echo "walt" > /sys/devices/system/cpu/cpufreq/policy7/scaling_governor
 echo 0 > /sys/devices/system/cpu/cpufreq/policy7/walt/down_rate_limit_us
 echo 0 > /sys/devices/system/cpu/cpufreq/policy7/walt/up_rate_limit_us
 if [ $rev == "1.0" ]; then
-	echo 2227200 > /sys/devices/system/cpu/cpufreq/policy7/walt/hispeed_freq
+	echo 1536000 > /sys/devices/system/cpu/cpufreq/policy7/walt/hispeed_freq
 else
-	echo 2227200 > /sys/devices/system/cpu/cpufreq/policy7/walt/hispeed_freq
+	echo 1728000 > /sys/devices/system/cpu/cpufreq/policy7/walt/hispeed_freq
 fi
 echo 1 > /sys/devices/system/cpu/cpufreq/policy7/walt/pl
 
@@ -227,10 +227,5 @@ case "$console_config" in
 		echo "Enable console config to $console_config"
 	;;
 esac
-
-# GPU tuning (Adreno 730) - factory max freq, raised min, longer idle timer
-echo 818000000 > /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
-echo 317000000 > /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
-echo 150 > /sys/class/kgsl/kgsl-3d0/idle_timer
 
 setprop vendor.post_boot.parsed 1

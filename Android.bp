@@ -6,10 +6,8 @@ soong_namespace {
     imports: [
         "device/motorola/sm8475-common",
         "hardware/motorola",
-        "hardware/qcom-caf/common/libqti-perfd-client",
         "hardware/qcom-caf/sm8450",
         "hardware/qcom-caf/wlan",
-        "vendor/qcom/opensource/commonsys-intf/display",
         "vendor/qcom/opensource/commonsys/display",
         "vendor/qcom/opensource/dataservices",
     ],
@@ -1151,7 +1149,7 @@ cc_prebuilt_library_shared {
             shared_libs: [
                 "libhidlbase",
                 "libutils",
-                "vendor.qti.hardware.wifidisplaysession@1.0_vendor",
+                "vendor.qti.hardware.wifidisplaysession@1.0",
                 "libc++",
                 "libc",
                 "libm",
@@ -2114,7 +2112,7 @@ cc_prebuilt_library_shared {
                 "libhidlbase",
                 "libhidlmemory",
                 "android.hidl.memory@1.0",
-                "vendor.qti.qspmhal@1.0",
+                "vendor.qti.qspmhal@1.0_vendor",
                 "libdl",
                 "libz",
                 "liblog",
@@ -3164,7 +3162,7 @@ cc_prebuilt_library_shared {
                 "liblog",
                 "libbinder",
                 "libdrm",
-                "libtinyxml2-v34",
+                "libtinyxml2",
                 "libdisplaydebug",
                 "libhidlbase",
                 "android.frameworks.sensorservice@1.0",
@@ -4708,13 +4706,9 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libmcs.so",
             ],
             shared_libs: [
-                "libagm",
                 "libaudioroute",
-                "libar-acdb",
                 "liblog",
                 "libcutils",
-                "libats",
-                "liblx-osal",
                 "libtinyalsa",
                 "libc++",
                 "libc",
@@ -5761,7 +5755,6 @@ cc_prebuilt_library_shared {
                 "libqc2audio_basecodec",
                 "libcodec2_vndk",
                 "libstagefright_foundation",
-                "libpalclient",
                 "libc++",
                 "libc",
                 "libm",
@@ -7712,7 +7705,6 @@ cc_prebuilt_library_shared {
             shared_libs: [
                 "liblog",
                 "libcutils",
-                "libar-pal",
                 "libc++",
                 "libc",
                 "libm",
@@ -8493,7 +8485,7 @@ cc_prebuilt_library_shared {
                 "libdisplaydebug",
                 "libsdm-color",
                 "libbinder",
-                "libtinyxml2-v34",
+                "libtinyxml2",
                 "libsdmutils",
                 "libdrm",
                 "libdigital-dimming",
@@ -9487,7 +9479,7 @@ cc_prebuilt_library_shared {
                 "liblog",
                 "libutils",
                 "libwfdsourcesession_proprietary",
-                "vendor.qti.hardware.wifidisplaysession@1.0_vendor",
+                "vendor.qti.hardware.wifidisplaysession@1.0",
                 "libwfdcommonutils_proprietary",
                 "libhidlbase",
                 "libc++",
@@ -13804,7 +13796,7 @@ cc_prebuilt_library_shared {
                 "libhidlbase",
                 "libutils",
                 "libcutils",
-                "vendor.qti.hardware.wifidisplaysession@1.0_vendor",
+                "vendor.qti.hardware.wifidisplaysession@1.0",
                 "libwfdsessionmodule",
                 "liblog",
                 "libwfdcommonutils_proprietary",
@@ -14553,7 +14545,7 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libutils",
-                "vendor.qti.qspmhal@1.0",
+                "vendor.qti.qspmhal@1.0_vendor",
                 "android.hidl.allocator@1.0",
                 "android.hidl.memory@1.0",
                 "libhidlbase",
@@ -14601,7 +14593,7 @@ cc_prebuilt_library_shared {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n00_bin",
+    name: "bm2n00",
     filename: "bm2n00.bin",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/bm2n00.bin",
@@ -14610,7 +14602,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n01_bin",
+    name: "bm2n01",
     filename: "bm2n01.bin",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/bm2n01.bin",
@@ -14619,7 +14611,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n02_bin",
+    name: "bm2n02",
     filename: "bm2n02.bin",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/bm2n02.bin",
@@ -14628,7 +14620,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n03_bin",
+    name: "bm2n03",
     filename: "bm2n03.bin",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/bm2n03.bin",
@@ -14637,7 +14629,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n04_bin",
+    name: "bm2n04",
     filename: "bm2n04.bin",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/bm2n04.bin",
@@ -14646,7 +14638,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n05_bin",
+    name: "bm2n05",
     filename: "bm2n05.bin",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/bm2n05.bin",
@@ -14655,7 +14647,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n06_bin",
+    name: "bm2n06",
     filename: "bm2n06.bin",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/bm2n06.bin",
@@ -14664,7 +14656,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n07_bin",
+    name: "bm2n07",
     filename: "bm2n07.bin",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/bm2n07.bin",
@@ -14673,7 +14665,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n08_bin",
+    name: "bm2n08",
     filename: "bm2n08.bin",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/bm2n08.bin",
@@ -14682,7 +14674,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n09_bin",
+    name: "bm2n09",
     filename: "bm2n09.bin",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/bm2n09.bin",
@@ -14691,7 +14683,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n10_bin",
+    name: "bm2n10",
     filename: "bm2n10.bin",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/bm2n10.bin",
@@ -14700,7 +14692,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_bm2n11_bin",
+    name: "bm2n11",
     filename: "bm2n11.bin",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/bm2n11.bin",
@@ -14709,7 +14701,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_capi_v2_aptX_Classic_so",
+    name: "capi_v2_aptX_Classic",
     filename: "capi_v2_aptX_Classic.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/capi_v2_aptX_Classic.so",
@@ -14718,7 +14710,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_capi_v2_aptX_HD_so",
+    name: "capi_v2_aptX_HD",
     filename: "capi_v2_aptX_HD.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/capi_v2_aptX_HD.so",
@@ -14727,7 +14719,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libDspIOProxy_skel_so",
+    name: "libDspIOProxy_skel",
     filename: "libDspIOProxy_skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libDspIOProxy_skel.so",
@@ -14736,7 +14728,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libQ6MSFR_manager_skel_so",
+    name: "libQ6MSFR_manager_skel",
     filename: "libQ6MSFR_manager_skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libQ6MSFR_manager_skel.so",
@@ -14745,7 +14737,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libQnnHtpAltPrepV69Skel_so",
+    name: "libQnnHtpAltPrepV69Skel",
     filename: "libQnnHtpAltPrepV69Skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libQnnHtpAltPrepV69Skel.so",
@@ -14754,7 +14746,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libQnnHtpV69Skel_so",
+    name: "libQnnHtpV69Skel",
     filename: "libQnnHtpV69Skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libQnnHtpV69Skel.so",
@@ -14763,7 +14755,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libSnpeHtpV68Skel_so",
+    name: "libSnpeHtpV68Skel",
     filename: "libSnpeHtpV68Skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libSnpeHtpV68Skel.so",
@@ -14772,7 +14764,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libSnpeHtpV69Skel_so",
+    name: "libSnpeHtpV69Skel",
     filename: "libSnpeHtpV69Skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libSnpeHtpV69Skel.so",
@@ -14781,7 +14773,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libSuperSensor_skel_so",
+    name: "libSuperSensor_skel",
     filename: "libSuperSensor_skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libSuperSensor_skel.so",
@@ -14790,7 +14782,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libVppFrcQnnHtp_so",
+    name: "libVppFrcQnnHtp",
     filename: "libVppFrcQnnHtp.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libVppFrcQnnHtp.so",
@@ -14799,7 +14791,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libVppQnnHtp_so",
+    name: "libVppQnnHtp",
     filename: "libVppQnnHtp.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libVppQnnHtp.so",
@@ -14808,7 +14800,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libadsp_jpege_skel_so",
+    name: "libadsp_jpege_skel",
     filename: "libadsp_jpege_skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libadsp_jpege_skel.so",
@@ -14817,7 +14809,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libapn_dsp_skel_so",
+    name: "libapn_dsp_skel",
     filename: "libapn_dsp_skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libapn_dsp_skel.so",
@@ -14826,7 +14818,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libbitml_nsp_skel_so",
+    name: "libbitml_nsp_skel",
     filename: "libbitml_nsp_skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libbitml_nsp_skel.so",
@@ -14835,7 +14827,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libbitml_nsp_v2_skel_so",
+    name: "libbitml_nsp_v2_skel",
     filename: "libbitml_nsp_v2_skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libbitml_nsp_v2_skel.so",
@@ -14844,7 +14836,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libcalculator_skel_so",
+    name: "libcalculator_skel",
     filename: "libcalculator_skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libcalculator_skel.so",
@@ -14853,7 +14845,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libcamera_nn_skel_so",
+    name: "libcamera_nn_skel",
     filename: "libcamera_nn_skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libcamera_nn_skel.so",
@@ -14862,7 +14854,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libcvpdsp_2_1_so",
+    name: "libcvpdsp_2_1",
     filename: "libcvpdsp_2_1.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libcvpdsp_2_1.so",
@@ -14871,7 +14863,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libdspCV_skel_so",
+    name: "libdspCV_skel",
     filename: "libdspCV_skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libdspCV_skel.so",
@@ -14880,7 +14872,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libdsp_streamer_binning_so",
+    name: "libdsp_streamer_binning",
     filename: "libdsp_streamer_binning.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libdsp_streamer_binning.so",
@@ -14889,7 +14881,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libdsp_streamer_qvrcam_receiver_so",
+    name: "libdsp_streamer_qvrcam_receiver",
     filename: "libdsp_streamer_qvrcam_receiver.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libdsp_streamer_qvrcam_receiver.so",
@@ -14898,7 +14890,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libevadsp_3_0_so",
+    name: "libevadsp_3_0",
     filename: "libevadsp_3_0.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libevadsp_3_0.so",
@@ -14907,7 +14899,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libeye_tracking_dsp_sample_skel_so",
+    name: "libeye_tracking_dsp_sample_skel",
     filename: "libeye_tracking_dsp_sample_skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libeye_tracking_dsp_sample_skel.so",
@@ -14916,7 +14908,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libfastcvadsp_so",
+    name: "libfastcvadsp",
     filename: "libfastcvadsp.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libfastcvadsp.so",
@@ -14925,7 +14917,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libfastcvdsp_skel_so",
+    name: "libfastcvdsp_skel",
     filename: "libfastcvdsp_skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libfastcvdsp_skel.so",
@@ -14934,7 +14926,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libhalide_hexagon_remote_skel_so",
+    name: "libhalide_hexagon_remote_skel",
     filename: "libhalide_hexagon_remote_skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libhalide_hexagon_remote_skel.so",
@@ -14943,7 +14935,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libmctfengine_skel_so",
+    name: "libmctfengine_skel",
     filename: "libmctfengine_skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libmctfengine_skel.so",
@@ -14952,7 +14944,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libmobilenet_dsp_frc_so",
+    name: "libmobilenet_dsp_frc",
     filename: "libmobilenet_dsp_frc.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libmobilenet_dsp_frc.so",
@@ -14961,7 +14953,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libmobilenet_dsp_frc_networks_so",
+    name: "libmobilenet_dsp_frc_networks",
     filename: "libmobilenet_dsp_frc_networks.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libmobilenet_dsp_frc_networks.so",
@@ -14970,7 +14962,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libqvr_3dof_tracker_skel_so",
+    name: "libqvr_3dof_tracker_skel",
     filename: "libqvr_3dof_tracker_skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libqvr_3dof_tracker_skel.so",
@@ -14979,7 +14971,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libqvr_cam_dsp_driver_skel_so",
+    name: "libqvr_cam_dsp_driver_skel",
     filename: "libqvr_cam_dsp_driver_skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libqvr_cam_dsp_driver_skel.so",
@@ -14988,7 +14980,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libqvr_dsp_driver_skel_so",
+    name: "libqvr_dsp_driver_skel",
     filename: "libqvr_dsp_driver_skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libqvr_dsp_driver_skel.so",
@@ -14997,7 +14989,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libscveT2T_skel_so",
+    name: "libscveT2T_skel",
     filename: "libscveT2T_skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libscveT2T_skel.so",
@@ -15006,7 +14998,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libsnpe_dsp_v65_domains_v2_skel_so",
+    name: "libsnpe_dsp_v65_domains_v2_skel",
     filename: "libsnpe_dsp_v65_domains_v2_skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libsnpe_dsp_v65_domains_v2_skel.so",
@@ -15015,7 +15007,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libsnpe_dsp_v66_domains_v2_skel_so",
+    name: "libsnpe_dsp_v66_domains_v2_skel",
     filename: "libsnpe_dsp_v66_domains_v2_skel.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libsnpe_dsp_v66_domains_v2_skel.so",
@@ -15024,7 +15016,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libtracker_6dof_skel_8250_so",
+    name: "libtracker_6dof_skel_8250",
     filename: "libtracker_6dof_skel_8250.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libtracker_6dof_skel_8250.so",
@@ -15033,7 +15025,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libtracker_6dof_skel_8350_so",
+    name: "libtracker_6dof_skel_8350",
     filename: "libtracker_6dof_skel_8350.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libtracker_6dof_skel_8350.so",
@@ -15042,7 +15034,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libvpp_ais_networks_so",
+    name: "libvpp_ais_networks",
     filename: "libvpp_ais_networks.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libvpp_ais_networks.so",
@@ -15051,7 +15043,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libvpp_vqa_networks_so",
+    name: "libvpp_vqa_networks",
     filename: "libvpp_vqa_networks.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libvpp_vqa_networks.so",
@@ -15060,7 +15052,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libvpt_action_recognition_so",
+    name: "libvpt_action_recognition",
     filename: "libvpt_action_recognition.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libvpt_action_recognition.so",
@@ -15069,7 +15061,7 @@ prebuilt_rfsa {
 }
 
 prebuilt_rfsa {
-    name: "vendor_lib_rfsa_adsp_libworker_pool_so",
+    name: "libworker_pool",
     filename: "libworker_pool.so",
     owner: "motorola",
     src: "proprietary/vendor/lib/rfsa/adsp/libworker_pool.so",
@@ -15896,9 +15888,10 @@ cc_prebuilt_library_shared {
                 "proprietary/system_ext/lib64/libwfdnative.so",
             ],
             shared_libs: [
-                "libinput_shim",
                 "libandroid_runtime",
+                "libgui",
                 "libui",
+                "libbinder",
                 "libinput",
                 "libnativehelper",
                 "libutils",
@@ -15906,8 +15899,6 @@ cc_prebuilt_library_shared {
                 "libwfdclient",
                 "libhidlbase",
                 "libhidlmemory",
-                "libbinder",
-                "libgui",
                 "android.hidl.base@1.0",
                 "android.hidl.token@1.0-utils",
                 "android.hardware.graphics.common@1.0",
@@ -16316,7 +16307,7 @@ cc_prebuilt_library_shared {
                 "proprietary/system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-full-21.7",
+                "libprotobuf-cpp-full",
                 "libcutils",
                 "liblog",
                 "libhidlbase",
@@ -19102,7 +19093,7 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/vendor.qti.qspmhal@1.0-service",
             ],
             shared_libs: [
-                "vendor.qti.qspmhal@1.0",
+                "vendor.qti.qspmhal@1.0_vendor",
                 "vendor.qti.qspmhal@1.0-impl",
                 "libhidlbase",
                 "liblog",
@@ -19211,7 +19202,7 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/wifidisplayhalservice",
             ],
             shared_libs: [
-                "vendor.qti.hardware.wifidisplaysession@1.0_vendor",
+                "vendor.qti.hardware.wifidisplaysession@1.0",
                 "vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl",
                 "libhidlbase",
                 "libutils",
