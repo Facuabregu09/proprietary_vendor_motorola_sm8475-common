@@ -9,8 +9,265 @@ soong_namespace {
         "hardware/qcom-caf/sm8450",
         "hardware/qcom-caf/wlan",
         "vendor/qcom/opensource/commonsys/display",
+        "vendor/qcom/opensource/commonsys-intf/display",
         "vendor/qcom/opensource/dataservices",
     ],
+}
+
+cc_prebuilt_library_shared {
+    name: "libar-acdb",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libar-acdb.so",
+            ],
+            shared_libs: [
+                "liblx-osal",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libar-acdb.so",
+            ],
+            shared_libs: [
+                "liblx-osal",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libar-gpr",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libar-gpr.so",
+            ],
+            shared_libs: [
+                "liblx-osal",
+                "libcutils",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libar-gpr.so",
+            ],
+            shared_libs: [
+                "liblx-osal",
+                "libcutils",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libar-gsl",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libar-gsl.so",
+            ],
+            shared_libs: [
+                "liblx-ar_util",
+                "libar-gpr",
+                "libar-acdb",
+                "liblx-osal",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libar-gsl.so",
+            ],
+            shared_libs: [
+                "libar-acdb",
+                "liblx-osal",
+                "liblx-ar_util",
+                "libar-gpr",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libats",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libats.so",
+            ],
+            shared_libs: [
+                "libutils",
+                "libcutils",
+                "libdiag",
+                "libar-gsl",
+                "liblx-osal",
+                "libar-acdb",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libats.so",
+            ],
+            shared_libs: [
+                "liblx-osal",
+                "libar-acdb",
+                "libutils",
+                "libcutils",
+                "libdiag",
+                "libar-gsl",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "liblx-ar_util",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/liblx-ar_util.so",
+            ],
+            shared_libs: [
+                "liblx-osal",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/liblx-ar_util.so",
+            ],
+            shared_libs: [
+                "liblx-osal",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "liblx-osal",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/liblx-osal.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libdiag",
+                "libion",
+                "libpdmapper",
+                "libpdnotifier",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/liblx-osal.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libdiag",
+                "libion",
+                "libpdmapper",
+                "libpdnotifier",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
+    soc_specific: true,
 }
 
 cc_prebuilt_library_shared {
@@ -665,6 +922,86 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "audio.primary.taro_vendor",
+    overrides: ["audio.primary.taro"],
+    stem: "audio.primary.taro",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/hw/audio.primary.taro.so",
+            ],
+            shared_libs: [
+                "libar-pal",
+                "libbase",
+                "liblog",
+                "libcutils",
+                "libaudioutils",
+                "libexpat",
+                "libhidlbase",
+                "libprocessgroup",
+                "libutils",
+                "libtinyalsa",
+                "android.hidl.allocator@1.0",
+                "android.hidl.memory@1.0",
+                "libhidlmemory",
+                "lib_lvacfs",
+                "liblvacfs_wrapper",
+                "vendor.qti.hardware.pal@1.0-impl",
+                "vendor.qti.hardware.pal@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    relative_install_path: "hw",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "sound_trigger.primary.taro",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/hw/sound_trigger.primary.taro.so",
+            ],
+            shared_libs: [
+                "libar-pal",
+                "libbase",
+                "liblog",
+                "libcutils",
+                "libaudioutils",
+                "libexpat",
+                "libhidlbase",
+                "libprocessgroup",
+                "libutils",
+                "vendor.qti.hardware.ListenSoundModel@1.0-impl",
+                "vendor.qti.hardware.ListenSoundModel@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    relative_install_path: "hw",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "vendor.qti.esepowermanager@1.1-impl",
     owner: "motorola",
     strip: {
@@ -1137,6 +1474,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "vendor.qti.hardware.wifidisplaysession@1.0-impl",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -1420,6 +1758,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "lib-imsvtcore",
+    check_elf_files: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -2068,6 +2407,31 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "lib_lvacfs",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/lib_lvacfs.so",
+            ],
+            shared_libs: [
+                "libcutils",
+                "libc",
+                "libc++",
+                "libdl",
+                "libm",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "libadm",
     owner: "motorola",
     strip: {
@@ -2112,7 +2476,7 @@ cc_prebuilt_library_shared {
                 "libhidlbase",
                 "libhidlmemory",
                 "android.hidl.memory@1.0",
-                "vendor.qti.qspmhal@1.0_vendor",
+                "vendor.qti.qspmhal@1.0",
                 "libdl",
                 "libz",
                 "liblog",
@@ -2254,6 +2618,226 @@ cc_prebuilt_library_shared {
                 "libdmabufheap",
                 "libvmmem",
                 "libc++",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libagm",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libagm.so",
+            ],
+            shared_libs: [
+                "liblx-osal",
+                "libats",
+                "libar-gsl",
+                "liblog",
+                "libcutils",
+                "libaudioroute",
+                "libtinyalsa",
+                "libaudio_log_utils",
+                "libexpat",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libagm_compress_plugin",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libagm_compress_plugin.so",
+            ],
+            shared_libs: [
+                "libsndcardparser",
+                "libagmclient",
+                "libutils",
+                "libcutils",
+                "liblog",
+                "libtinyalsa",
+                "libtinycompress",
+                "libaudio_log_utils",
+                "libexpat",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libagm_mixer_plugin",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libagm_mixer_plugin.so",
+            ],
+            shared_libs: [
+                "libsndcardparser",
+                "libagmclient",
+                "libcutils",
+                "libutils",
+                "liblog",
+                "libtinyalsa",
+                "libaudio_log_utils",
+                "libexpat",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libagm_pcm_plugin",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libagm_pcm_plugin.so",
+            ],
+            shared_libs: [
+                "libsndcardparser",
+                "libagmclient",
+                "libutils",
+                "libcutils",
+                "liblog",
+                "libtinyalsa",
+                "libaudio_log_utils",
+                "libexpat",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libagmclient",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libagmclient.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "libutils",
+                "liblog",
+                "libcutils",
+                "libhardware",
+                "libbase",
+                "vendor.qti.hardware.AGMIPC@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libagmmixer",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libagmmixer.so",
+            ],
+            shared_libs: [
+                "libtinyalsa",
+                "libexpat",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libar-pal",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libar-pal.so",
+            ],
+            shared_libs: [
+                "liblx-osal",
+                "libar-gsl",
+                "liblog",
+                "libexpat",
+                "libaudioroute",
+                "libcutils",
+                "libagmclient",
+                "libtinyalsa",
+                "libtinycompress",
+                "libc++",
+                "libc",
                 "libm",
                 "libdl",
             ],
@@ -2627,6 +3211,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libcne",
+    check_elf_files: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -2676,7 +3261,6 @@ cc_prebuilt_library_shared {
                 "vendor.qti.latency@2.1",
                 "vendor.qti.hardware.mwqemadapter@1.0",
                 "vendor.qti.data.mwqem@1.0",
-                "libwpa_client",
                 "android.hardware.wifi.hostapd@1.0",
                 "android.hardware.wifi.supplicant@1.0",
                 "libc++",
@@ -3123,6 +3707,8 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libdpmqmihal.so",
             ],
             shared_libs: [
+                "com.qualcomm.qti.dpm.api@1.0_vendor",
+                "com.qualcomm.qti.dpm.api@1.0_vendor",
                 "libhidlbase",
                 "liblog",
                 "libcutils",
@@ -3550,6 +4136,36 @@ cc_prebuilt_library_shared {
                 "libdmabufheap",
                 "libfastcvdsp_stub",
                 "libcdsprpc",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libfmpal",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libfmpal.so",
+            ],
+            shared_libs: [
+                "libar-pal",
+                "libaudioroute",
+                "libaudioutils",
+                "libcutils",
+                "libexpat",
+                "liblog",
                 "libc++",
                 "libc",
                 "libm",
@@ -4695,6 +5311,32 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "liblvacfs_wrapper",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/liblvacfs_wrapper.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "lib_lvacfs",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "libmcs",
     owner: "motorola",
     strip: {
@@ -4706,6 +5348,10 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libmcs.so",
             ],
             shared_libs: [
+                "libagm",
+                "libar-acdb",
+                "libats",
+                "liblx-osal",
                 "libaudioroute",
                 "liblog",
                 "libcutils",
@@ -4724,6 +5370,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libmdmcutback",
+    check_elf_files: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -4742,7 +5389,6 @@ cc_prebuilt_library_shared {
                 "libsensorndkbridge",
                 "libqmimotext",
                 "liblog",
-                "libqsap_sdk",
                 "vendor.qti.hardware.bluetooth_sar@1.1",
                 "libhidlbase",
                 "libxml2",
@@ -5523,6 +6169,38 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "libpalclient",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libpalclient.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "libhidltransport",
+                "libutils",
+                "liblog",
+                "libcutils",
+                "libhardware",
+                "libbase",
+                "vendor.qti.hardware.pal@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "libpdmapper",
     owner: "motorola",
     strip: {
@@ -5746,6 +6424,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libqc2audio_hwaudiocodec.so",
             ],
             shared_libs: [
+                "libpalclient",
                 "libutils",
                 "libcutils",
                 "liblog",
@@ -5990,6 +6669,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libqcc_file_agent",
+    check_elf_files: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -6148,7 +6828,6 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libqcodec2_core.so",
             ],
             shared_libs: [
-                "libcodec2_shim",
                 "libutils",
                 "libcutils",
                 "liblog",
@@ -7703,6 +8382,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libqtigefar.so",
             ],
             shared_libs: [
+                "libar-pal",
                 "liblog",
                 "libcutils",
                 "libc++",
@@ -8302,6 +8982,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libsensorcal",
+    check_elf_files: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -8312,7 +8993,6 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libsensorcal.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
                 "liblog",
                 "libssc",
                 "libutils",
@@ -8533,6 +9213,32 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+    name: "libsndcardparser",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libsndcardparser.so",
+            ],
+            shared_libs: [
+                "libexpat",
+                "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
     name: "libsns_device_mode_stub",
     owner: "motorola",
     strip: {
@@ -8590,6 +9296,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libsnsapi",
+    check_elf_files: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -8600,7 +9307,6 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libsnsapi.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
                 "libcutils",
                 "libutils",
                 "libqmi_common_so",
@@ -8620,6 +9326,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libsnsdiaglog",
+    check_elf_files: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -8630,7 +9337,6 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libsnsdiaglog.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
                 "liblog",
                 "libdiag",
                 "libsensorslog",
@@ -8708,6 +9414,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libssc",
+    check_elf_files: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -8718,7 +9425,6 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libssc.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
                 "liblog",
                 "libsensorslog",
                 "libcutils",
@@ -9116,6 +9822,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdcodecv4l2_proprietary",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -9147,6 +9854,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdcommonutils_proprietary",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -9178,6 +9886,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdconfigutils_proprietary",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -9209,6 +9918,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfddisplayconfig_vendor",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -9239,6 +9949,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdhdcpcp",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -9270,6 +9981,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdhdcpservice_proprietary",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -9301,6 +10013,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdmminterface_proprietary",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -9328,6 +10041,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdmmservice_proprietary",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -9357,6 +10071,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdmmsrc_proprietary",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -9404,6 +10119,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdmodulehdcpsession",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -9435,6 +10151,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdrtsp_vendor",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -9465,6 +10182,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdsessionmodule",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -9496,6 +10214,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdsourcesession_proprietary",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -9532,6 +10251,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdsourcesm_proprietary",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -9571,6 +10291,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfduibcinterface_vendor",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -9601,6 +10322,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfduibcsink_vendor",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -9628,6 +10350,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfduibcsinkinterface_vendor",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -9659,6 +10382,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfduibcsrc_vendor",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -9690,6 +10414,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfduibcsrcinterface_vendor",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -9721,6 +10446,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdutils_proprietary",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -9831,6 +10557,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwvhidl",
+    check_elf_files: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -9853,7 +10580,6 @@ cc_prebuilt_library_shared {
                 "libhidlbase",
                 "libhidlmemory",
                 "liblog",
-                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
                 "libutils",
                 "libc++",
                 "libc",
@@ -10379,6 +11105,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "sensors.ssc",
+    check_elf_files: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -10391,7 +11118,6 @@ cc_prebuilt_library_shared {
             shared_libs: [
                 "libsns_direct_channel_stub",
                 "libadsprpc",
-                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
                 "liblog",
                 "libsnsapi",
                 "libssc",
@@ -10435,6 +11161,89 @@ cc_prebuilt_library_shared {
             shared_libs: [
                 "libcutils",
                 "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    relative_install_path: "soundfx",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libqcompostprocbundle",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/soundfx/libqcompostprocbundle.so",
+            ],
+            shared_libs: [
+                "libar-pal",
+                "libcutils",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    relative_install_path: "soundfx",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libqcomvisualizer",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/soundfx/libqcomvisualizer.so",
+            ],
+            shared_libs: [
+                "libar-pal",
+                "libcutils",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    relative_install_path: "soundfx",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libqcomvoiceprocessing",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/soundfx/libqcomvoiceprocessing.so",
+            ],
+            shared_libs: [
+                "liblog",
+                "libcutils",
                 "libc++",
                 "libc",
                 "libm",
@@ -10494,6 +11303,35 @@ cc_prebuilt_library_shared {
                 "libsensorndkbridge",
                 "libaudioroute",
                 "libgui_vendor",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    relative_install_path: "soundfx",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libvolumelistener",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/soundfx/libvolumelistener.so",
+            ],
+            shared_libs: [
+                "libar-pal",
+                "libcutils",
+                "liblog",
+                "libaudioutils",
                 "libc++",
                 "libc",
                 "libm",
@@ -10799,6 +11637,8 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/vendor.libdpmctmgr.so",
             ],
             shared_libs: [
+                "com.qualcomm.qti.dpm.api@1.0_vendor",
+                "com.qualcomm.qti.dpm.api@1.0_vendor",
                 "libdiag",
                 "libbinder",
                 "libcutils",
@@ -10831,6 +11671,8 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/vendor.libdpmfdmgr.so",
             ],
             shared_libs: [
+                "com.qualcomm.qti.dpm.api@1.0_vendor",
+                "com.qualcomm.qti.dpm.api@1.0_vendor",
                 "libdiag",
                 "libbinder",
                 "libcutils",
@@ -10862,6 +11704,8 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/vendor.libdpmframework.so",
             ],
             shared_libs: [
+                "com.qualcomm.qti.dpm.api@1.0_vendor",
+                "com.qualcomm.qti.dpm.api@1.0_vendor",
                 "libhidlbase_shim",
                 "libdiag",
                 "libbinder",
@@ -10898,6 +11742,8 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/vendor.libdpmtcm.so",
             ],
             shared_libs: [
+                "com.qualcomm.qti.dpm.api@1.0_vendor",
+                "com.qualcomm.qti.dpm.api@1.0_vendor",
                 "libdiag",
                 "libbinder",
                 "libcutils",
@@ -10932,6 +11778,8 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/vendor.libmwqemiptablemgr.so",
             ],
             shared_libs: [
+                "com.qualcomm.qti.dpm.api@1.0_vendor",
+                "com.qualcomm.qti.dpm.api@1.0_vendor",
                 "liblog",
                 "libcutils",
                 "libbase",
@@ -11422,6 +12270,103 @@ cc_prebuilt_library_shared {
                 "libxtadapter",
                 "libizat_core",
                 "libizat_client_api",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.qti.hardware.AGMIPC@1.0-impl",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/vendor.qti.hardware.AGMIPC@1.0-impl.so",
+            ],
+            shared_libs: [
+                "libagm",
+                "libhidlbase",
+                "libutils",
+                "liblog",
+                "libcutils",
+                "libhardware",
+                "libbase",
+                "libar-gsl",
+                "vendor.qti.hardware.AGMIPC@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.qti.hardware.ListenSoundModel@1.0-impl",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/vendor.qti.hardware.ListenSoundModel@1.0-impl.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "libhidltransport",
+                "libutils",
+                "liblog",
+                "libcutils",
+                "libhardware",
+                "libbase",
+                "libhidlmemory",
+                "android.hidl.allocator@1.0",
+                "android.hidl.memory@1.0",
+                "vendor.qti.hardware.ListenSoundModel@1.0",
+                "liblistensoundmodel2vendor",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.qti.hardware.ListenSoundModel@1.0",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/vendor.qti.hardware.ListenSoundModel@1.0.so",
+            ],
+            shared_libs: [
+                "libhidlbase",
+                "liblog",
+                "libutils",
+                "libcutils",
                 "libc++",
                 "libc",
                 "libm",
@@ -12252,6 +13197,39 @@ cc_prebuilt_library_shared {
                 "liblog",
                 "libutils",
                 "libcutils",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.qti.hardware.pal@1.0-impl",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/vendor.qti.hardware.pal@1.0-impl.so",
+            ],
+            shared_libs: [
+                "libar-pal",
+                "libhidlbase",
+                "libhidltransport",
+                "libutils",
+                "liblog",
+                "libcutils",
+                "libhardware",
+                "libbase",
+                "vendor.qti.hardware.pal@1.0",
                 "libc++",
                 "libc",
                 "libm",
@@ -13753,7 +14731,8 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.qti.hardware.wifidisplaysession@1.0_vendor",
+    name: "vendor.qti.hardware.wifidisplaysession@1.0",
+    enabled: false,
     stem: "vendor.qti.hardware.wifidisplaysession@1.0",
     owner: "motorola",
     strip: {
@@ -13783,6 +14762,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -14545,7 +15525,7 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libutils",
-                "vendor.qti.qspmhal@1.0_vendor",
+                "vendor.qti.qspmhal@1.0",
                 "android.hidl.allocator@1.0",
                 "android.hidl.memory@1.0",
                 "libhidlbase",
@@ -15502,6 +16482,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libmmrtpdecoder",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -15530,6 +16511,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libmmrtpencoder",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -15584,6 +16566,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdavenhancements",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -15614,6 +16597,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdclient",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -15650,6 +16634,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdcommonutils",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -15695,6 +16680,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdconfigutils",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -15726,6 +16712,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfddisplayconfig",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -15758,6 +16745,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdmminterface",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -15785,6 +16773,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdmmsink",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -15832,6 +16821,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdmmsrc_system",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -15878,6 +16868,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdnative",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -15918,6 +16909,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdrtsp",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -15948,6 +16940,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdservice",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -15994,6 +16987,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfdsinksm",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -16034,6 +17028,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfduibcinterface",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -16064,6 +17059,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfduibcsink",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -16093,6 +17089,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfduibcsinkinterface",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -16124,6 +17121,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfduibcsrc",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -16155,6 +17153,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "libwfduibcsrcinterface",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -16361,7 +17360,9 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.qti.hardware.wifidisplaysession@1.0",
+    name: "vendor.qti.hardware.wifidisplaysession@1.0_system_ext",
+    enabled: false,
+    stem: "vendor.qti.hardware.wifidisplaysession@1.0",
     owner: "motorola",
     strip: {
         none: true,
@@ -16390,6 +17391,7 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library_shared {
     name: "vendor.qti.hardware.wifidisplaysession_aidl-V1-ndk",
+    enabled: false,
     owner: "motorola",
     strip: {
         none: true,
@@ -17635,6 +18637,40 @@ cc_prebuilt_binary {
 }
 
 cc_prebuilt_binary {
+    name: "vendor.qti.hardware.AGMIPC@1.0-service",
+    owner: "motorola",
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/bin/hw/vendor.qti.hardware.AGMIPC@1.0-service",
+            ],
+            shared_libs: [
+                "liblog",
+                "libagm",
+                "libcutils",
+                "libbase",
+                "libutils",
+                "libhardware",
+                "libhidlbase",
+                "vendor.qti.hardware.AGMIPC@1.0",
+                "vendor.qti.hardware.AGMIPC@1.0-impl",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+    prefer: true,
+    relative_install_path: "hw",
+    soc_specific: true,
+}
+
+cc_prebuilt_binary {
     name: "vendor.qti.hardware.alarm@1.0-service",
     owner: "motorola",
     target: {
@@ -18121,6 +19157,7 @@ cc_prebuilt_binary {
 
 cc_prebuilt_binary {
     name: "lowi-server",
+    check_elf_files: false,
     owner: "motorola",
     target: {
         android_arm64: {
@@ -18134,7 +19171,6 @@ cc_prebuilt_binary {
                 "libloc_mq_client",
                 "liblog",
                 "libnl",
-                "libwpa_client",
                 "liblowi_common",
                 "libqmi_cci",
                 "libqmi_common_so",
@@ -18583,6 +19619,7 @@ cc_prebuilt_binary {
 
 cc_prebuilt_binary {
     name: "qms",
+    check_elf_files: false,
     owner: "motorola",
     target: {
         android_arm64: {
@@ -18602,7 +19639,6 @@ cc_prebuilt_binary {
                 "libidl",
                 "libandroid_net",
                 "libhidlbase",
-                "libwpa_client",
                 "libbinder",
                 "libc++",
                 "libc",
@@ -18806,6 +19842,7 @@ cc_prebuilt_binary {
 
 cc_prebuilt_binary {
     name: "sensors.qti",
+    check_elf_files: false,
     owner: "motorola",
     target: {
         android_arm64: {
@@ -18813,7 +19850,6 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/sensors.qti",
             ],
             shared_libs: [
-                "libprotobuf-cpp-lite-3.9.1-vendorcompat",
                 "liblog",
                 "libdiag",
                 "libssc",
@@ -19093,7 +20129,7 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/vendor.qti.qspmhal@1.0-service",
             ],
             shared_libs: [
-                "vendor.qti.qspmhal@1.0_vendor",
+                "vendor.qti.qspmhal@1.0",
                 "vendor.qti.qspmhal@1.0-impl",
                 "libhidlbase",
                 "liblog",
@@ -19124,6 +20160,7 @@ sh_binary {
 
 cc_prebuilt_binary {
     name: "wfdhdcphalservice",
+    enabled: false,
     owner: "motorola",
     target: {
         android_arm64: {
@@ -19166,6 +20203,7 @@ cc_prebuilt_binary {
 
 cc_prebuilt_binary {
     name: "wfdvndservice",
+    enabled: false,
     owner: "motorola",
     target: {
         android_arm64: {
@@ -19195,6 +20233,7 @@ cc_prebuilt_binary {
 
 cc_prebuilt_binary {
     name: "wifidisplayhalservice",
+    enabled: false,
     owner: "motorola",
     target: {
         android_arm64: {
@@ -19330,6 +20369,7 @@ cc_prebuilt_binary {
 
 cc_prebuilt_binary {
     name: "wfdservice64",
+    enabled: false,
     owner: "motorola",
     target: {
         android_arm64: {
@@ -19378,6 +20418,7 @@ install_symlink {
 
 install_symlink {
     name: "system_ext_priv-app_WfdService_lib_arm64_libwfdnative_so",
+    enabled: false,
     system_ext_specific: true,
     installed_location: "priv-app/WfdService/lib/arm64/libwfdnative.so",
     symlink_target: "/system_ext/lib64/libwfdnative.so",
